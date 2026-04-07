@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmação de Presença</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <form method="POST" class="rsvp-form">
+            <h2>Confirmar Presença</h2>
+            <div class="input-group">
+                <label>Seu Nome:</label>
+                <input type="text" name="nome" placeholder="Digite seu nome" required>
+            </div>
+            <div class="input-group">
+                <label>Quantidade de Acompanhantes:</label>
+                <input type="number" name="quantidade" value="0" min="0" required>
+            </div>
+            <button type="submit">Confirmar</button>
+        </form>
+    </div>
+</body>
+</html>
