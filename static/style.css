@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+   background-color: #000000; /* Preto puro */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,13 +12,16 @@ body {
     background: white;
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px #ff007f, 0 0 40px #ff007f66; /* Sombra rosa neon */
+border: 1px solid #ff007f; /* Uma borda fininha rosa para destacar */
     width: 90%;
     max-width: 400px;
     text-align: center;
 }
 
-h1 { color: #2d3436; margin-bottom: 1.5rem; }
+h1 { 
+    color: #ff007f; /* Título em rosa também fica top */
+}
 
 .form-group { text-align: center; margin-bottom: 1rem; }
 
