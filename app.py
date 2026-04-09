@@ -32,7 +32,10 @@ def index():
             db.session.add(novo_convidado)
             db.session.commit()
             return redirect(url_for('sucesso'))
-            
+    
+    # ESTA LINHA ABAIXO É A QUE FALTAVA:
+    # Ela precisa estar fora do "if" para que o formulário apareça ao abrir o site
+    return render_template('index.html')
 
 @app.route('/sucesso')
 def sucesso():
@@ -48,6 +51,7 @@ def admin():
     return render_template('admin.html', convidados=todos_convidados, total=total_pessoas)
 
 if __name__ == '__main__':
+    # Isso garante que o banco seja criado no Render também
     with app.app_context():
-        db.create_all()  # Cria o banco de dados automaticamente
-    app.run(debug=True)
+        db.create_all()
+    app.run()
