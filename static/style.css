@@ -24,16 +24,26 @@ h1 { color: #2d3436; margin-bottom: 1.5rem; }
 
 label { display: block; margin-bottom: 5px; color: #636e72; font-weight: bold; }
 
-input {
+/* Substitua o bloco 'input' por este: */
+input[type="text"] {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #dfe6e9;
-    border-radius: 6px;
-    outline: none;
-    transition: border 0.3s;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
-input:focus { border-color: #0984e3; }
+input[type="number"] {
+    width: 80px;      /* Aqui diminuímos a caixa */
+    display: block;
+    margin: 10px auto; /* Centraliza a caixa */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center; /* Centraliza o número dentro da caixa */
+}
+
+input:focus { border-color: #14fdd6; }
 
 button {
     background: #00b894;
@@ -47,7 +57,7 @@ button {
     transition: background 0.3s;
 }
 
-button:hover { background: #00a884; }
+button:hover { background: #fd05d4; }
 
 table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
-th, td { padding: 10px; border-bottom: 1px solid #eee; text-align: left; }
+th, td { padding: 12px; border-bottom: 1px solid #eee; text-align: center; }
