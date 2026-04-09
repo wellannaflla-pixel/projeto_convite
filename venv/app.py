@@ -33,7 +33,7 @@ def index():
             db.session.commit()
             return redirect(url_for('sucesso'))
             
-    return render_template('index.html')
+    return render_temp.\venv\Scripts\activatelate('index.html')
 
 @app.route('/sucesso')
 def sucesso():
