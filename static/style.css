@@ -51,9 +51,9 @@ button {
     color: white;
     border: none;
     padding: 12px;
-    width: 100%;
+    width: 500%;
     border-radius: 6px;
-    font-size: 20px;
+    font-size: 10px;
     cursor: pointer;
     transition: background 0.3s;
 }
