@@ -47,15 +47,18 @@ input[type="number"] {
 input:focus { border-color: #14fdd6; }
 
 button {
-    background: #00b894;
+    background-color: #2ecc71;
     color: white;
+    padding: 10px 20px; /* Diminuímos um pouco o enchimento */
     border: none;
-    padding: 12px;
-    width: 500%;
-    border-radius: 6px;
-    font-size: 10px;
+    border-radius: 8px;
     cursor: pointer;
+    width: auto;         /* O botão agora só ocupa o tamanho do texto */
+    min-width: 150px;    /* Mas garante um tamanho mínimo para não ficar minúsculo */
+    font-size: 16px;
     transition: background 0.3s;
+    display: block;      /* Para podermos centralizar */
+    margin: 20px auto;   /* Centraliza o botão horizontalmente */
 }
 
 button:hover { background: #fd05d4; }
