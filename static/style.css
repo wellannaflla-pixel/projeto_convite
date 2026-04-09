@@ -53,7 +53,7 @@ button {
     padding: 12px;
     width: 100%;
     border-radius: 6px;
-    font-size: 2rem;
+    font-size: 50;
     cursor: pointer;
     transition: background 0.3s;
 }
