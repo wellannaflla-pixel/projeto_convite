@@ -8,7 +8,7 @@ auth = HTTPBasicAuth()
 
 # Configuração de Segurança
 USER_DATA = {
-    "Day": "14162227"
+    "admin": "14162227"
 }
 
 @auth.verify_password
