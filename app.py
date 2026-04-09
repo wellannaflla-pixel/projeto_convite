@@ -54,10 +54,14 @@ def index():
 @app.route('/sucesso')
 def sucesso():
     return "<h1>Presença confirmada! Obrigado.</h1>"
-@app.route('/admin')
+@app.route('/sucesso')
+def sucesso():
+    return "<h1>Presença confirmada! Obrigado.</h1>"
+
+# APAGUE TUDO DAQUI PARA BAIXO E COLE ESTE BLOCO NOVO:
 
 @app.route('/admin')
-@auth.login_required  # <--- ESSA É A LINHA QUE BLOQUEIA A ENTRADA
+@auth.login_required
 def admin():
     # Busca todos os convidados no banco de dados
     todos_convidados = Convidado.query.all()
@@ -67,17 +71,7 @@ def admin():
     
     return render_template('admin.html', convidados=todos_convidados, total=total_pessoas)
 
-def admin():
-    # Busca todos os convidados no banco de dados
-    todos_convidados = Convidado.query.all()
-    
-    # Soma o total de pessoas (convidado + acompanhantes)
-    total_pessoas = sum([c.acompanhantes + 1 for c in todos_convidados])
-    
-    return render_template('admin.html', convidados=todos_convidados, total=total_pessoas)
-
 if __name__ == '__main__':
-    # Isso garante que o banco seja criado no Render também
     with app.app_context():
         db.create_all()
-    app.run()
+   
