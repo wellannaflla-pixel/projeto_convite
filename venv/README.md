@@ -61,4 +61,4 @@ Acesse: http://127.0.0.1:5000
 O projeto está configurado para deploy automático no Render. O banco de dados SQLite é gerado automaticamente na primeira execução através do contexto da aplicação (db.create_all()).
 
 ✍️ Autor
-Wellington Silva de Jesus Rodrigues Estudante de Desenvolvimento Full Stack Backend
+Wellington Silva de Jesus Rodrigues Estudante de Desenvolvimento Full Stack
