@@ -4,6 +4,20 @@ from flask_sqlalchemy import SQLAlchemy # type: ignore
 
 app = Flask(__name__)
 
+from flask_httpauth import HTTPBasicAuth
+
+auth = HTTPBasicAuth()
+
+# Aqui você define o login e a senha que vai usar para entrar
+USER_DATA = {
+    "admin": "14162227"  # Você pode mudar "1234" para a senha que quiser
+}
+
+@auth.verify_password
+def verify(username, password):
+    if username in USER_DATA and USER_DATA[username] == password:
+        return username
+
 # Configuração do Banco de Dados SQLite
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'presencas.db')
@@ -41,6 +55,18 @@ def index():
 def sucesso():
     return "<h1>Presença confirmada! Obrigado.</h1>"
 @app.route('/admin')
+
+@app.route('/admin')
+@auth.login_required  # <--- ESSA É A LINHA QUE BLOQUEIA A ENTRADA
+def admin():
+    # Busca todos os convidados no banco de dados
+    todos_convidados = Convidado.query.all()
+    
+    # Soma o total de pessoas
+    total_pessoas = sum([c.acompanhantes + 1 for c in todos_convidados])
+    
+    return render_template('admin.html', convidados=todos_convidados, total=total_pessoas)
+
 def admin():
     # Busca todos os convidados no banco de dados
     todos_convidados = Convidado.query.all()
