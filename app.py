@@ -48,15 +48,6 @@ def sucesso():
 @app.route('/admin')
 @auth.login_required
 def admin():
-
-@app.route('/excluir/<int:id>')
-@auth.login_required
-def excluir(id):
-    convidado = Convidado.query.get_or_404(id)
-    db.session.delete(convidado)
-    db.session.commit()
-    return redirect(url_for('admin'))
-
     todos = Convidado.query.all()
     total = sum([c.acompanhantes + 1 for c in todos])
     return render_template('admin.html', convidados=todos, total=total)
@@ -65,3 +56,12 @@ if __name__ == '__main__':
     with app.app_context():
         db.create_all()
     app.run(debug=True)
+
+@app.route('/excluir/<int:id>')
+@auth.login_required
+def excluir(id):
+
+convidado = Convidado.query.get_or_404(id)
+    db.session.delete(convidado)
+    db.session.commit()
+    return redirect(url_for('admin'))
