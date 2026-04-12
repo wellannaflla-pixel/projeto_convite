@@ -21,8 +21,18 @@
                 {% for convidado in convidados %}
                 <tr>
                     <td>{{ convidado.nome }}</td>
-                    <td>{{ convidado.acompanhantes }}</td>
-                </tr>
+                    
+
+<td>{{ convidado.acompanhantes }}</td>
+<td>
+    <a href="{{ url_for('excluir', id=convidado.id) }}" 
+       style="color: #ff007f; text-decoration: none; font-weight: bold;"
+       onclick="return confirm('Tem certeza que deseja excluir?')">
+       [X]
+    </a>
+</td>
+
+
                 {% endfor %}
             </tbody>
         </table>
